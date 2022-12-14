@@ -1,0 +1,38 @@
+.body-content {
+  background: #001219;
+}
+
+.main-content section[class*=task-] {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.main-content .task-1 .grid-area {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 0.2rem;
+}
+.main-content .task-1 .grid-area .grid-item {
+  height: min(20rem, 20vh);
+  width: min(20rem, 20vw);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #94D2BD;
+  transition: all 0.3s ease-in-out;
+}
+.main-content .task-1 .grid-area .grid-item > p {
+  font-size: 2.4rem;
+  transition: all 0.3s ease-in-out;
+}
+.main-content .task-1 .grid-area .grid-item:hover {
+  background: #005F73;
+}
+.main-content .task-1 .grid-area .grid-item:hover > p {
+  font-size: 3rem;
+  color: #fff;
+}
