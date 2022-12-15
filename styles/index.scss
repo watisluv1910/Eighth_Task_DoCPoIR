@@ -132,4 +132,43 @@
             }
         }
     }
+
+    .task-3 {
+
+        .grid-container {
+            max-width: 80%;
+
+            display: grid;
+            grid-auto-flow: column;
+            gap: 2rem;
+
+            .grid-item {
+                padding: 2rem;
+
+                display: grid;
+                gap: 1rem;
+
+                text-align: center;
+
+                border-radius: 2rem;
+                background: linear-gradient(45deg, var(--clr-dark-blue), var(--clr-mid-blue), var(--clr-light-blue));
+
+                p:nth-child(1) {
+                    color: rgba(255, 255, 255, 0.5);
+                }
+
+                &:nth-child(2) {
+                    background: linear-gradient(45deg, var(--clr-dark-red), var(--clr-red), var(--clr-pastel));
+                }
+
+                &:nth-child(3) {
+                    background: linear-gradient(45deg, var(--clr-dark-orange), var(--clr-mid-orange), var(--clr-light-orange));
+                }
+
+                &:nth-child(4) {
+                    background: linear-gradient(45deg, var(--clr-dark-red), var(--clr-mid-orange), var(--clr-light-blue));
+                }
+            }
+        }
+    }
 }
