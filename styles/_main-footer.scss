@@ -1,0 +1,232 @@
+footer {
+    --gap-default: 1.6rem;
+    --col-num-default: 12;
+
+    display: grid;
+    grid-template-columns: repeat(var(--col-num-default), 1fr);
+    gap: var(--gap-default);
+
+    margin-top: var(--gap-default);
+    padding-block: var(--gap-default);
+
+    color: var(--clr-white);
+
+    .footer-content-wrapper {
+        position: relative;
+        
+        grid-column-start: 2;
+        grid-column-end: span calc(var(--col-num-default) - 2);
+
+        padding-inline: var(--gap-default);
+
+        display: grid;
+        gap: var(--gap-default);
+
+        .head {
+            position: relative;
+
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+
+            gap: var(--gap-default);
+
+            .media__container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                gap: var(--gap-default);
+
+                & > a img {
+                    height: 3rem;
+                    border-radius: 50%;
+                    transition: all 0.3s ease-in-out;
+
+                    &:hover {
+                        transform: scale(1.1);
+                        box-shadow: var(--hover-elevation-shadow);
+                    }
+                }
+            }
+
+            &::after {
+                position: absolute;
+                right: 0;
+                bottom: calc(-1 * var(--gap-default));
+
+                height: 0;
+                width: 100%;
+
+                content: '';
+
+                border-bottom: 2px dotted rgba(255, 255, 255, 0.6);
+            }
+        }
+    
+        .main__content {
+            padding-block: var(--gap-default);
+
+            .boxes__container {
+                position: relative;
+
+                display: grid;
+                grid-template-columns: repeat(5, 1fr);
+                gap: var(--gap-default);
+
+                .__box {
+                    display: flex;
+                    flex-direction: column;
+                    gap: calc(var(--gap-default) / 2);
+
+                    .__title {
+                        position: relative;
+
+                        &::before {
+                            position: absolute;
+                            left: 0;
+                            bottom: -2px;
+
+                            height: 2px;
+                            width: 35px;
+
+                            content: '';
+
+                            background: rgba(255, 255, 255, 0.6);
+                        }
+                    }
+                }
+
+                .input-box .__input {
+                    display: grid;
+                    gap: calc(var(--gap-default) / 2);
+
+                    input[type="text"] {
+                        height: 3rem;
+
+                        font-size: 1.6rem;
+                        color: var(--clr-white);
+                        background: none;
+
+                        border: none;
+                        outline: none;
+                        border-bottom: 2px solid var(--clr-white);
+
+                        transition: all 0.3s ease-in-out;
+                        
+                        &:focus {
+                            border-bottom-color: var(--clr-mid-orange);
+                        }
+                    }
+
+                    .btn-footer-search {
+                        width: 50%;
+
+                        padding: 5px 20px;
+
+                        background: var(--clr-white);
+                        color: var(--clr-black);
+
+                        text-transform: uppercase;
+
+                        transition: all 0.3s ease-in-out;
+
+                        &:hover {
+                            background: var(--clr-light-orange);
+                            transform: scale(1.1) translateX(5px);
+                        }
+                    }
+                }
+
+                &::after{
+                    position: absolute;
+    
+                    right: 0;
+                    bottom: calc(-1 * var(--gap-default));
+    
+                    height: 0;
+                    width: 100%;
+    
+                    content: '';
+    
+                    border-bottom: 2px dotted rgba(255, 255, 255, 0.6);
+                }
+            }
+        }
+
+        .bottom .bottom__content {
+            display: flex;
+            justify-content: space-between;
+            gap: var(--gap-default);
+
+            span {
+                display: flex;
+                align-items: center;
+                gap: calc(var(--gap-default) / 2);
+
+                color: rgba(255, 255, 255, 0.6);
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1250px) {
+
+    footer .footer-content-wrapper {
+
+        @media only screen and (max-width: 905px) {
+
+            --col-num-default: 8;
+
+            @media only screen and (max-width: 600px) {
+
+                --col-num-default: 4;
+            
+                .head {
+                    justify-content: center;
+                }
+            }
+        }
+
+        grid-column-end: span var(--col-num-default);
+
+        @media only screen and (min-width: 905px) {
+            grid-column-end: span calc(var(--col-num-default) - 2);
+        }
+        
+        .main__content .boxes__container {
+            grid-template-columns: repeat(calc(var(--col-num-default) / 2), 1fr);
+
+            @media only screen and (max-width: 375px) {
+                & .input-box {
+                    grid-column-end: span calc(var(--col-num-default) / 2);
+                }
+            }
+
+            @media only screen and (min-width: 600px) and (max-width: 750px) {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            @media only screen and (min-width: 905px) {
+                grid-template-columns: repeat(4, 1fr);
+
+                @media only screen and (min-width: calc(905px + 50px)) {
+                    grid-template-columns: repeat(calc((var(--col-num-default) - 2) / 2), 1fr);
+                }
+            }
+        }
+
+        .bottom .bottom__content {
+            flex-direction: column;
+
+            span {
+                justify-content: space-between;
+
+                &.__copyright {
+                    flex-direction: column;
+                }
+            }
+        }
+    }
+}
